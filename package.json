@@ -1,0 +1,17 @@
+{
+  "name": "anti-bottom",
+  "version": "1.0.0",
+  "description": "discord bot that removes the message encoded in bottom",
+  "main": "index.js",
+  "repository": "https://github.com/sourTaste000/anti-bottom.git",
+  "author": "sourtaste000 <sourtaste000@gmail.com>",
+  "license": "The Unlicense",
+  "private": false,
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "bottomify": "^0.3.0",
+    "discord.js": "^12.5.3"
+  }
+}
