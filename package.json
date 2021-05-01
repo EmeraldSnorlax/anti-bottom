@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "repository": "https://github.com/sourTaste000/anti-bottom.git",
   "author": "sourtaste000 <sourtaste000@gmail.com>",
-  "license": "The Unlicense",
+  "license": "Unlicense",
   "private": false,
   "devDependencies": {
     "@types/node": "^15.0.1",
