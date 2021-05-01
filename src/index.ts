@@ -1,7 +1,5 @@
-const Discord = require('discord.js');
-
-const bottom = require('bottomify');
-
+import Discord from 'discord.js';
+import bottomify from 'bottomify';
 const client = new Discord.Client();
 
 const reasons = [
@@ -16,7 +14,6 @@ const reasons = [
 const btmRegex = /\W(bottom) (encode|decode)/;
 
 client.once('ready', () => {
-  // eslint-disable-next-line no-console
   console.log('Ready! 😎');
 });
 
@@ -26,7 +23,7 @@ client.on('message', (message) => {
       .then((a) => a.channel.send(reasons[Math.floor(Math.random() * reasons.length)]));
   }
   try {
-    bottom.decode(message.content);
+    bottomify.decode(message.content);
   } catch (e) {
     return 'ok';
   }
