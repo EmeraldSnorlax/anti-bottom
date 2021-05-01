@@ -1,5 +1,7 @@
 import Discord from 'discord.js';
 import bottomify from 'bottomify';
+import token from './config';
+
 const client = new Discord.Client();
 
 const reasons = [
@@ -32,4 +34,4 @@ client.on('message', (message) => {
   return 'deleted';
 });
 
-client.login('YOUR_TOKEN_HERE');
+client.login(token);
