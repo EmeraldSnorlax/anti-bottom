@@ -1,26 +1,38 @@
-const Discord = require("discord.js"), bottom = require("bottomify"), client = new Discord.Client;
+const Discord = require('discord.js');
 
-let reasons = [
-    "unfunny",
-    ":pleading_face: stop deleting my messages",
-    "banned",
-    "sus",
-    "spamming not allowed",
-    "nice try"
-]
+const bottom = require('bottomify');
 
-client.once("ready", () => {
-    console.log("Ready! 😎")
+const client = new Discord.Client();
+
+const reasons = [
+  'unfunny',
+  ':pleading_face: stop deleting my messages',
+  'banned',
+  'sus',
+  'spamming not allowed',
+  'nice try',
+];
+
+const btmRegex = /\W(bottom) (encode|decode)/;
+
+client.once('ready', () => {
+  // eslint-disable-next-line no-console
+  console.log('Ready! 😎');
 });
 
-client.on("message", e => {
-    if (e.author.bot) return "bot";
-    try {
-        bottom.decode(e.content)
-    } catch (e) {
-        return "ok"
-    }
-    e.delete().then(t => e.channel.send(reasons[Math.floor(Math.random()*reasons.length)])))
+client.on('message', (message) => {
+  if (btmRegex.test(message.content)) {
+    message.delete()
+      .then((a) => a.channel.send(reasons[Math.floor(Math.random() * reasons.length)]));
+  }
+  try {
+    bottom.decode(message.content);
+  } catch (e) {
+    return 'ok';
+  }
+  message.delete()
+    .then((r) => r.channel.send(reasons[Math.floor(Math.random() * reasons.length)]));
+  return 'deleted';
 });
 
-client.login("YOUR_TOKEN_HERE");
+client.login('YOUR_TOKEN_HERE');
